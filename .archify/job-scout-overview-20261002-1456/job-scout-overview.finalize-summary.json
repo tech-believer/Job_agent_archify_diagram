@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "ok": false,
+  "command": "finalize",
+  "status": "fail",
+  "type": "workflow",
+  "quality": "showcase",
+  "specification": {
+    "path": "D:\\AI Job\\observable-job-agent\\.archify\\job-scout-overview-20261002-1456\\candidate.json",
+    "sha256": "d1fb816d2f235356dfe997577349c2a0ce2d1489ec8a45541c807a57c9db173e",
+    "bytes": 5335
+  },
+  "artifact": {
+    "path": "D:\\AI Job\\observable-job-agent\\.archify\\job-scout-overview-20261002-1456\\job-scout-overview.html"
+  },
+  "gates": {
+    "validate": "fail",
+    "deliver": "not-run",
+    "check": "not-run",
+    "browser-check": "not-run"
+  },
+  "failedStage": "validate",
+  "diagnostics": [
+    {
+      "code": "workflow/route-preset-conflict",
+      "severity": "error",
+      "message": "Workflow edge \"e-rewrite-search\" cannot satisfy route preset \"return-left\" under readable-v2 constraints (minimum 8px endpoint stubs, 16px interior turns, and 28px direct clearance).",
+      "subject": {
+        "diagramType": "workflow",
+        "edge": "e-rewrite-search",
+        "from": "rewrite",
+        "to": "search",
+        "route": "return-left"
+      },
+      "evidence": {
+        "attemptedCandidateFamily": "return-left",
+        "points": [
+          [
+            676,
+            377
+          ],
+          [
+            312,
+            377
+          ],
+          [
+            312,
+            246
+          ],
+          [
+            480,
+            246
+          ]
+        ],
+        "fromSide": "left",
+        "toSide": "right",
+        "requiredEndpointStubPx": 8,
+        "requiredInteriorSegmentPx": 16,
+        "requiredDirectClearancePx": 28
+      },
+      "supportedFixes": [
+        "remove route from edge \"e-rewrite-search\" so readable-v2 can use its verified automatic candidate"
+      ]
+    }
+  ],
+  "diagnosticSummary": {
+    "total": 1,
+    "shown": 1,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "D:\\AI Job\\observable-job-agent\\.archify\\job-scout-overview-20261002-1456\\job-scout-overview.finalize.json",
+    "summaryReceipt": "D:\\AI Job\\observable-job-agent\\.archify\\job-scout-overview-20261002-1456\\job-scout-overview.finalize-summary.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.0.1",
+    "availableVersion": "3.0.1",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-02T13:01:13.383Z",
+    "source": "network",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 790,
+  "nextAction": {
+    "action": "edit-in-place",
+    "candidate": "D:\\AI Job\\observable-job-agent\\.archify\\job-scout-overview-20261002-1456\\candidate.json",
+    "constraint": "Preserve unaffected semantics and geometry; do not replace the whole candidate.",
+    "then": "finalize-once"
+  }
+}

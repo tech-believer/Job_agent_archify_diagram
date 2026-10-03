@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "command": "deliver",
+  "status": "pending",
+  "receiptId": "dd1abe9a-a111-41ab-96ca-c8bda6e73aa2",
+  "input": "D:\\AI Job\\observable-job-agent\\.archify\\job-scout-overview-20261002-1456\\candidate.json",
+  "output": "D:\\AI Job\\observable-job-agent\\.archify\\job-scout-overview-20261002-1456\\job-scout-overview.html"
+}

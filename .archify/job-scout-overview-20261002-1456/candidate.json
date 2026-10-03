@@ -1,0 +1,194 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "How Job Scout finds jobs for you",
+    "subtitle": "The big picture — from your PDF resume to a ranked list",
+    "locale": "en",
+    "quality_profile": "showcase",
+    "visual_preset": "blueprint",
+    "output": ".archify/job-scout-overview-20261002-1456/job-scout-overview.html",
+    "legend": {
+      "entries": {
+        "frontend": { "label": "You" },
+        "backend": { "label": "Job Scout" },
+        "security": { "label": "Fit check" },
+        "messagebus": { "label": "Try again" }
+      }
+    }
+  },
+  "lanes": [
+    { "id": "you", "label": "You" },
+    { "id": "scout", "label": "Job Scout" },
+    { "id": "retry", "label": "If matches are thin", "variant": "exception" }
+  ],
+  "phases": [
+    { "id": "start", "label": "Start with your CV", "fromCol": 0, "toCol": 1 },
+    { "id": "find", "label": "Find and score jobs", "fromCol": 2, "toCol": 4, "variant": "emphasis" },
+    { "id": "result", "label": "See the list", "fromCol": 5, "toCol": 5 }
+  ],
+  "groups": [
+    {
+      "id": "retry_loop",
+      "label": "Retry loop · max 2 times",
+      "lane": "retry",
+      "fromCol": 2,
+      "toCol": 4,
+      "variant": "security"
+    }
+  ],
+  "mainPath": ["upload", "profile", "search", "score", "enough", "show"],
+  "nodes": [
+    {
+      "id": "upload",
+      "lane": "you",
+      "col": 0,
+      "type": "frontend",
+      "label": "Upload your CV",
+      "sublabel": "PDF in the web app",
+      "icon": "person",
+      "width": 140
+    },
+    {
+      "id": "profile",
+      "lane": "scout",
+      "col": 1,
+      "type": "backend",
+      "label": "Build a profile",
+      "sublabel": "skills, roles, experience",
+      "icon": "briefcase",
+      "width": 148
+    },
+    {
+      "id": "search",
+      "lane": "scout",
+      "col": 2,
+      "type": "backend",
+      "label": "Search openings",
+      "sublabel": "real job ads",
+      "icon": "cloud",
+      "width": 140
+    },
+    {
+      "id": "score",
+      "lane": "scout",
+      "col": 3,
+      "type": "backend",
+      "label": "Score each job",
+      "sublabel": "fit from 0 to 100",
+      "icon": "flag",
+      "width": 140
+    },
+    {
+      "id": "enough",
+      "lane": "scout",
+      "col": 4,
+      "type": "security",
+      "label": "Enough good matches?",
+      "sublabel": "need 5 jobs at 60+",
+      "tag": "or try again",
+      "icon": "security",
+      "width": 148
+    },
+    {
+      "id": "rewrite",
+      "lane": "retry",
+      "col": 4,
+      "type": "messagebus",
+      "label": "Rewrite the search",
+      "sublabel": "broader query · max 2",
+      "tag": "then search again",
+      "icon": "clock",
+      "width": 148
+    },
+    {
+      "id": "show",
+      "lane": "you",
+      "col": 5,
+      "type": "frontend",
+      "label": "See ranked jobs",
+      "sublabel": "matches and gaps",
+      "icon": "success",
+      "width": 140
+    }
+  ],
+  "edges": [
+    { "id": "e-upload-profile", "from": "upload", "to": "profile" },
+    { "id": "e-profile-search", "from": "profile", "to": "search" },
+    { "id": "e-search-score", "from": "search", "to": "score" },
+    { "id": "e-score-enough", "from": "score", "to": "enough" },
+    {
+      "id": "e-enough-show",
+      "from": "enough",
+      "to": "show",
+      "label": "yes",
+      "variant": "emphasis"
+    },
+    {
+      "id": "e-enough-rewrite",
+      "from": "enough",
+      "to": "rewrite",
+      "label": "too few",
+      "variant": "security",
+      "role": "branch"
+    },
+    {
+      "id": "e-rewrite-search",
+      "from": "rewrite",
+      "to": "search",
+      "label": "search again",
+      "variant": "dashed",
+      "role": "return"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "1. Upload your CV",
+      "items": [
+        "What: drop a PDF resume in the web app.",
+        "Why: this is the only starting input."
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "2. Build a profile",
+      "items": [
+        "What: read the PDF and list skills, roles, and experience.",
+        "Why: later steps compare jobs to this snapshot, not the raw file."
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "3. Search openings",
+      "items": [
+        "What: look up real job ads that match those roles.",
+        "Why: ranking only works on actual openings."
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "4. Score each job",
+      "items": [
+        "What: give every opening a 0–100 fit score.",
+        "Why: you see the best matches first, not a random dump."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "5. Retry if matches are thin",
+      "items": [
+        "What: if fewer than 5 jobs score 60 or higher, rewrite the search and look again.",
+        "Why: a slightly broader query often finds more real fits. This happens at most twice."
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "6. See ranked jobs",
+      "items": [
+        "What: a sorted list with why each job matches and what is missing.",
+        "Why: you can judge the role honestly before you apply."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+[submodule "observable-job-agent"]
+	path = observable-job-agent
+	url = https://github.com/tech-believer/Job_agent_open_src.git

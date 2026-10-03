@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "b9800713-64d6-47b2-bdc2-7fc73449ba5f",
+  "status": "current",
+  "command": "deliver",
+  "type": "workflow",
+  "input": "D:\\AI Job\\observable-job-agent\\.archify\\job-scout-overview-20261002-1456\\candidate.json",
+  "output": "D:\\AI Job\\observable-job-agent\\diagrams\\job-scout-overview.html",
+  "specification": {
+    "sha256": "27e9f1c4febd39176671e2deadbf59f049da0d92a674c26e0dd24e859f1a417a",
+    "bytes": 5304
+  },
+  "artifact": {
+    "sha256": "8cbbecccbdd43b2c75306fec0b0110b3cb244773df9c47871c18dd2bb67e9668",
+    "bytes": 756783
+  }
+}

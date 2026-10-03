@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "ok": false,
+  "command": "finalize",
+  "status": "fail",
+  "type": "workflow",
+  "quality": "showcase",
+  "startedAt": "2026-10-02T13:01:13.109Z",
+  "specification": {
+    "path": "D:\\AI Job\\observable-job-agent\\.archify\\job-scout-overview-20261002-1456\\candidate.json",
+    "sha256": "d1fb816d2f235356dfe997577349c2a0ce2d1489ec8a45541c807a57c9db173e",
+    "bytes": 5335
+  },
+  "artifact": {
+    "path": "D:\\AI Job\\observable-job-agent\\.archify\\job-scout-overview-20261002-1456\\job-scout-overview.html"
+  },
+  "stages": {
+    "validate": {
+      "status": "fail",
+      "exitCode": 1,
+      "durationMs": null,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\aishw\\AppData\\Local\\Temp\\archify-skill\\archify\\bin\\archify.mjs",
+        "deliver",
+        "workflow",
+        "D:\\AI Job\\observable-job-agent\\.archify\\job-scout-overview-20261002-1456\\candidate.json",
+        "D:\\AI Job\\observable-job-agent\\.archify\\job-scout-overview-20261002-1456\\job-scout-overview.html",
+        "--quality",
+        "showcase",
+        "--json"
+      ],
+      "receipt": {
+        "schemaVersion": 1,
+        "ok": false,
+        "command": "deliver",
+        "receiptId": "dd1abe9a-a111-41ab-96ca-c8bda6e73aa2",
+        "stage": "render",
+        "type": "workflow",
+        "input": "D:\\AI Job\\observable-job-agent\\.archify\\job-scout-overview-20261002-1456\\candidate.json",
+        "output": "D:\\AI Job\\observable-job-agent\\.archify\\job-scout-overview-20261002-1456\\job-scout-overview.html",
+        "error": "Workflow edge \"e-rewrite-search\" cannot satisfy route preset \"return-left\" under readable-v2 constraints (minimum 8px endpoint stubs, 16px interior turns, and 28px direct clearance).",
+        "diagnostics": [
+          {
+            "code": "workflow/route-preset-conflict",
+            "severity": "error",
+            "message": "Workflow edge \"e-rewrite-search\" cannot satisfy route preset \"return-left\" under readable-v2 constraints (minimum 8px endpoint stubs, 16px interior turns, and 28px direct clearance).",
+            "subject": {
+              "diagramType": "workflow",
+              "edge": "e-rewrite-search",
+              "from": "rewrite",
+              "to": "search",
+              "route": "return-left"
+            },
+            "evidence": {
+              "attemptedCandidateFamily": "return-left",
+              "points": [
+                [
+                  676,
+                  377
+                ],
+                [
+                  312,
+                  377
+                ],
+                [
+                  312,
+                  246
+                ],
+                [
+                  480,
+                  246
+                ]
+              ],
+              "fromSide": "left",
+              "toSide": "right",
+              "requiredEndpointStubPx": 8,
+              "requiredInteriorSegmentPx": 16,
+              "requiredDirectClearancePx": 28
+            },
+            "supportedFixes": [
+              "remove route from edge \"e-rewrite-search\" so readable-v2 can use its verified automatic candidate"
+            ]
+          }
+        ],
+        "provenance": "absent",
+        "update": {
+          "status": "unavailable",
+          "installedVersion": null,
+          "availableVersion": null,
+          "releaseNotes": null,
+          "checkedAt": null,
+          "source": null,
+          "noticeRequired": false,
+          "noticeText": null,
+          "reason": "disabled"
+        }
+      },
+      "execution": "embedded-in-deliver"
+    },
+    "deliver": {
+      "status": "not-run",
+      "execution": "blocked-by-validate"
+    }
+  },
+  "diagnostics": [
+    {
+      "code": "workflow/route-preset-conflict",
+      "severity": "error",
+      "message": "Workflow edge \"e-rewrite-search\" cannot satisfy route preset \"return-left\" under readable-v2 constraints (minimum 8px endpoint stubs, 16px interior turns, and 28px direct clearance).",
+      "subject": {
+        "diagramType": "workflow",
+        "edge": "e-rewrite-search",
+        "from": "rewrite",
+        "to": "search",
+        "route": "return-left"
+      },
+      "evidence": {
+        "attemptedCandidateFamily": "return-left",
+        "points": [
+          [
+            676,
+            377
+          ],
+          [
+            312,
+            377
+          ],
+          [
+            312,
+            246
+          ],
+          [
+            480,
+            246
+          ]
+        ],
+        "fromSide": "left",
+        "toSide": "right",
+        "requiredEndpointStubPx": 8,
+        "requiredInteriorSegmentPx": 16,
+        "requiredDirectClearancePx": 28
+      },
+      "supportedFixes": [
+        "remove route from edge \"e-rewrite-search\" so readable-v2 can use its verified automatic candidate"
+      ]
+    }
+  ],
+  "evidence": {
+    "receipt": "D:\\AI Job\\observable-job-agent\\.archify\\job-scout-overview-20261002-1456\\job-scout-overview.finalize.json",
+    "summaryReceipt": "D:\\AI Job\\observable-job-agent\\.archify\\job-scout-overview-20261002-1456\\job-scout-overview.finalize-summary.json"
+  },
+  "visualReview": "not-requested",
+  "failedStage": "validate",
+  "finishedAt": "2026-10-02T13:01:13.900Z",
+  "durationMs": 790,
+  "update": {
+    "status": "current",
+    "installedVersion": "3.0.1",
+    "availableVersion": "3.0.1",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-02T13:01:13.383Z",
+    "source": "network",
+    "noticeRequired": false,
+    "noticeText": null
+  }
+}
