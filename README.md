@@ -25,6 +25,8 @@ start "" "file:///D:/AI%20Job/Job_agent_archify_diagram/diagrams/job-scout-overv
 
 The HTML diagram is interactive. To display a static preview directly in this README, add a PNG or SVG export under `diagrams/` and link it with Markdown image syntax.
 
+![Job Scout overview](diagrams/how-job-scout-finds-jobs-for-you.png)
+
 ## Project relationship
 
 The application is linked in `observable-job-agent/` as a Git submodule pointing to [`tech-believer/Job_agent_open_src`](https://github.com/tech-believer/Job_agent_open_src). This keeps the application source in its own repository; this repository stores the diagrams and records the exact application commit it references.
